@@ -12,40 +12,38 @@ body {
 
 ul {
 	list-style: none;
-	margin: 300px 0 0 auto;
+	margin: -100px 0 0 auto;
 	padding: 0;
-	position: relative;
 	width: 75%;
 
 	font-size: 40px;
 	line-height: 2;
 }
 
-
-li:first-child.disappear {
-	top: -80px;
-	opacity: 0;
+li {
+	-webkit-transition: font-size 5s linear,
+	                    margin-top 5s linear,
+	                    height 5s linear;
 }
 
 li:first-child {
-	position: absolute;
-	left: 0;
-	top: -160px;
-	height: 80px;
-	vertical-align: bottom;
-	display: table-cell;
+	height: 100px;
 	font-size: 80px;
-	-webkit-transition: top 1s ease-out, opacity 1s linear;
-}
-
-li:first-child:before {
-	content: "Now: ";
 }
 
 li:nth-child(2) {
-	font-size: 60px;
+	margin-top: 200px;
+	font-size: 80px;
 }
 
 li:nth-child(2):before {
+	content: "Now: ";
+}
+
+li:nth-child(3) {
+	font-size: 60px;
+}
+
+li:nth-child(3):before {
 	content: "Next: ";	
 }
