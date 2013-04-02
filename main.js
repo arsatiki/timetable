@@ -16,4 +16,7 @@ window.onload = function() {
 	updateClock();
 
 	document.getElementById('clock').addEventListener('click', killFirst);
+	
+	// fix tweets
+	setTimeout(fixWidgetLayout, 2e3);
 }
