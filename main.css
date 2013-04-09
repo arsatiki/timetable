@@ -12,36 +12,27 @@ body {
 
 ul {
 	list-style: none;
-	margin: -100px 0 0 600px;
+	margin: 0 0 0 600px;
+}
 
+li.dead {
+	height: 0px;
+	opacity: 0;
+	-webkit-transition: height 400ms ease-out,
+	                    opacity 150ms ease,
+	                    font-size 400ms step-end;
+}
+
+li.dead + li.alive {
+	height: 160px;
+	font-size: 100px;
+}
+
+
+li.alive {
+	opacity: 1;
+	height: 80px;
 	font-size: 40px;
-	line-height: 2;
-}
-
-li {
-	-webkit-transition: font-size 5s linear,
-	                    margin-top 5s linear,
-	                    height 5s linear;
-}
-
-li:first-child {
-	height: 100px;
-	font-size: 80px;
-}
-
-li:nth-child(2) {
-	margin-top: 200px;
-	font-size: 80px;
-}
-
-li:nth-child(2):before {
-	content: "Now: ";
-}
-
-li:nth-child(3) {
-	font-size: 60px;
-}
-
-li:nth-child(3):before {
-	content: "Next: ";	
+	-webkit-transition: height 400ms ease-in,
+	                    font-size 400ms step-end;
 }

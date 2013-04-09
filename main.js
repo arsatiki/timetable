@@ -5,9 +5,8 @@ function updateClock() {
 }
 
 function killFirst() {
-	var u = document.getElementsByTagName('ul')[0];
-	var p = u.getElementsByTagName('li')[0];
-	u.removeChild(p);
+	var a = document.getElementsByClassName('alive')[0];
+	a.className = "dead";
 }
 
 window.onload = function() {
