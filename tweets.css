@@ -1,9 +1,4 @@
-#tweets {
-	position:absolute;
-	top: 0;
-	left: 0;
-	width: 600px;
-}
-
-#tweets iframe {
+.stream {
+	overflow-y: hidden !important;
+	zoom: 1.6;
 }
