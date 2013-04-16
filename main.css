@@ -3,12 +3,27 @@
 body {
 	font-family: 'Coda', cursive;
 	background: url('tausta.jpg') no-repeat top left;
+	overflow: hidden;
+}
+
+@-webkit-keyframes coptershake {
+	0% { right: 0px; bottom: 0px; }
+	95% { right: 0px; bottom: 0px; }
+	96% { right: 10px; bottom: 0px; -webkit-transform: rotate(3deg); }
+	97% { right: 0px; bottom: 10px; }
+	98% { right: 0px; bottom: -10px; -webkit-transform: rotate(-1deg); }
+	99% { right: -10px; bottom: 0px; -webkit-transform:rotate(1deg); }
+	100% { right: 0px; bottom: 0px; }
 }
 
 #copterlogo {
 	position: absolute;
 	right: 0px;
 	bottom: 0px;
+	-webkit-animation-name: coptershake;
+	-webkit-animation-duration: 60s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: ease-in;
 }
 
 #tweets {
