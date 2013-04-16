@@ -47,7 +47,7 @@ li.dead {
 }
 
 li.dead + li.alive {
-	height: 160px;
+	height: 180px;
 	font-size: 100px;
 }
 
@@ -58,4 +58,11 @@ li.alive {
 	font-size: 40px;
 	-webkit-transition: height 400ms ease-in,
 	                    font-size 400ms step-end;
+}
+
+li.alive .timeleft {
+	color: #777;
+	font-size: 40px;
+	display: block;
+	margin-top: -20px;
 }
