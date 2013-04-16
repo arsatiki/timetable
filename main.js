@@ -11,7 +11,6 @@ function fixWidgetLayout() {
 function updateClock() {
 	var clock = document.getElementById('clock');
 	var now = new Date();
-	clock.innerText = now.getHours() + ":" + now.getMinutes();
 }
 
 function killFirst() {
@@ -20,11 +19,9 @@ function killFirst() {
 }
 
 window.onload = function() {
-	// document.getElementsByTagName('li')[0].className="disappear";
 	setInterval(updateClock, 60e3);
-	updateClock();
 
-	document.getElementById('clock').addEventListener('click', killFirst);
+	document.getElementById('copterlogo').addEventListener('click', killFirst);
 	
 	// fix tweets
 	setTimeout(fixWidgetLayout, 1e2);
