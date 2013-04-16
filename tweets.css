@@ -2,3 +2,11 @@
 	overflow-y: hidden !important;
 	zoom: 1.6;
 }
+
+.timeline-header {
+	padding: 12px 0 0 20px !important;
+}
+
+.timeline-header h1.summary {
+	font-size: 24px !important;
+}
