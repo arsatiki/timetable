@@ -1,5 +1,7 @@
+@import url('http://fonts.googleapis.com/css?family=Coda');
+
 body {
-	font-family: Helvetica;
+	font-family: 'Coda', cursive;
 	background: url('tausta.jpg') no-repeat top left;
 }
 
