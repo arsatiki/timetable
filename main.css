@@ -3,6 +3,12 @@ body {
 	background: url('tausta.jpg') no-repeat top left;
 }
 
+#copterlogo {
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+}
+
 #tweets {
 	position:absolute;
 	top: 0;
