@@ -19,8 +19,6 @@ function extractTime(s) {
 function timeleft(s) {
 	var now = new Date();
 	var upcoming = extractTime(s);
-	console.log(now);
-	console.log(upcoming);
 	var diffms = upcoming.getTime() - now.getTime();
 	return diffms;
 }
@@ -52,17 +50,19 @@ function killFirst() {
 	a.className = "dead";
 }
 
+function killElFactory(el) { return function() {el.className = "dead"; }}
+
+
 window.onload = function() {
 	setInterval(updateClock, 60e3);
 	updateClock();
 
 	var k, events = document.getElementsByClassName('alive');
-	for (k = 0; k < events; k++) {
+	console.log(events);
+	for (k = 0; k < events.length; k++) {
 		var el = events[k];
 		var t = timeleft(el.dataset.time);
-		setTimeout(t, function() {
-			el.className = "dead";
-		});
+		setTimeout(killElFactory(el), t);
 	}
 	document.getElementById('copterlogo').addEventListener('click', killFirst);
 	
