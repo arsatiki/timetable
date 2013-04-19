@@ -28,7 +28,7 @@ function timeleft(s) {
 function updateClock() {
 	var events = document.getElementsByClassName('alive');
 	if (events.length < 2)
-		return
+		return;
 
 	var ts = events[0].getElementsByClassName('timeleft');
 
