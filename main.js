@@ -25,20 +25,23 @@ function timeleft(s) {
 	return (diffms / 60e3);
 }
 
+function attachTimeleftElement(eventElement) {
+	var n = document.createElement('span');
+	n.className = 'timeleft';
+	eventElement.appendChild(n);
+	return n;
+}
+
 function updateClock() {
 	var events = document.getElementsByClassName('alive');
 	if (events.length < 2)
 		return;
+	
+	var currentEvent = events[0];
+	var nextEvent = events[1];
 
-	var ts = events[0].getElementsByClassName('timeleft');
-
-	if (ts.length == 0) {
-		var n = document.createElement('span');
-		n.className = 'timeleft';
-		events[0].appendChild(n);
-		ts[0] = n;
-	}
-	var t = ts[0];
+	var ts = currentEvent.getElementsByClassName('timeleft');
+	var t = (ts.length > 0)? ts[0]: attachTimeleftElement(currentEvent);
 	t.innerText = "Time left " + 
 	              timeleft(events[1].dataset.time) +
 	              " minutes";
