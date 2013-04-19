@@ -22,7 +22,7 @@ function timeleft(s) {
 	console.log(now);
 	console.log(upcoming);
 	var diffms = upcoming.getTime() - now.getTime();
-	return (diffms / 60e3);
+	return diffms;
 }
 
 function attachTimeleftElement(eventElement) {
@@ -43,7 +43,7 @@ function updateClock() {
 	var ts = currentEvent.getElementsByClassName('timeleft');
 	var t = (ts.length > 0)? ts[0]: attachTimeleftElement(currentEvent);
 	t.innerText = "Time left " + 
-	              timeleft(events[1].dataset.time) +
+	              timeleft(nextEvent.dataset.time) / (60e3) +
 	              " minutes";
 }
 
@@ -56,6 +56,14 @@ window.onload = function() {
 	setInterval(updateClock, 60e3);
 	updateClock();
 
+	var k, events = document.getElementsByClassName('alive');
+	for (k = 0; k < events; k++) {
+		var el = events[k];
+		var t = timeleft(el.dataset.time);
+		setTimeout(t, function() {
+			el.className = "dead";
+		});
+	}
 	document.getElementById('copterlogo').addEventListener('click', killFirst);
 	
 	// fix tweets
