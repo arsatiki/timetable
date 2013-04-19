@@ -8,16 +8,21 @@ function fixWidgetLayout() {
 	doc.head.appendChild(link);
 }
 
-function timeleft(t) {
+function extractTime(s) {
+	var t = new Date();
+	var hm = s.split(':');
+	t.setHours(parseInt(hm[0]));
+	t.setMinutes(parseInt(hm[1]));
+	return t;
+}
+
+function timeleft(s) {
 	var now = new Date();
-	var upcoming = new Date();
-	var h = t.split(':');
-	upcoming.setHours(parseInt(h[0]));
-	upcoming.setMinutes(parseInt(h[1]));
+	var upcoming = extractTime(s);
 	console.log(now);
 	console.log(upcoming);
 	var diffms = upcoming.getTime() - now.getTime();
-	return (diffms / 60e3) + " minutes";
+	return (diffms / 60e3);
 }
 
 function updateClock() {
@@ -34,7 +39,9 @@ function updateClock() {
 		ts[0] = n;
 	}
 	var t = ts[0];
-	t.innerText = "Time left " + timeleft(events[1].dataset.time);
+	t.innerText = "Time left " + 
+	              timeleft(events[1].dataset.time) +
+	              " minutes";
 }
 
 function killFirst() {
